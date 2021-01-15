@@ -1,0 +1,13 @@
+{% extends 'chat/base.html' %}
+{% load static %}
+{% block content %}
+<div id="landing">
+    <h1>
+        Talk with strangers
+    </h1>
+    <form action="." method="post">
+        {% csrf_token %}
+        <input type="submit" value="Find strangers">
+    </form>
+</div>
+{% endblock content %}

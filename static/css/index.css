@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+#landing {
+  padding: 20px 0;
+}
+
+#chat-log {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 15px;
+  margin: 20px 0;
+  height: 530px;
+  overflow-y: scroll;
+}
+
+#chat-log * {
+  margin: 5px 0;
+}
+
+#chat-control {
+  height: 65px;
+}
+
+#chat-input {
+  height: 100%;
+}
+
+.sent {
+  font-weight: bold;
+  color: rgb(23, 37, 240);
+}
+
+.replies {
+  font-weight: bold;
+  color: rgb(240, 37, 23);
+}
+
+#quit-button {
+  width: 100px;
+}
+
+#typing-message {
+  font-weight: bold;
+  color: #717171;
+}

@@ -1,0 +1,20 @@
+{
+    "editor.formatOnSave": true,
+    "python.linting.pycodestyleEnabled": true,
+    "python.linting.pylintPath": "pylint",
+    "python.linting.pylintArgs": ["--load-plugins", "pylint_django"],
+    "python.linting.pylintEnabled": true,
+    "python.venvPath": "${workspaceFolder}/venv/scripts/python",
+    "python.linting.pycodestyleArgs": ["--ignore=E501"],
+    "files.exclude": {
+      "**/*.pyc": true
+    },
+    "python.formatting.provider": "autopep8",
+    "python.formatting.autopep8Path": "autopep8",
+    "[css]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}
