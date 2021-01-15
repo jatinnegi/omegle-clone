@@ -1,3 +1,3 @@
-### Omegle Clone
+# Omegle Clone
 
-# Made with Django and channels
+### Made with Django and channels
