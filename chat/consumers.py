@@ -1,7 +1,7 @@
 import json
 from channels.generic.websocket import WebsocketConsumer
 from asgiref.sync import async_to_sync
-from .models import Chat
+from .models import Chat, Online
 
 
 class ChatConsumer(WebsocketConsumer):
@@ -22,6 +22,9 @@ class ChatConsumer(WebsocketConsumer):
             )
 
             self.accept()
+            o = Online.objects.get(pk=1)
+            o.online = o.online + 1
+            o.save()
 
             content = {
                 'command': 'connected_message',
@@ -43,12 +46,22 @@ class ChatConsumer(WebsocketConsumer):
 
             self.accept()
 
+            o = Online.objects.get(pk=1)
+            o.online = o.online + 1
+            o.save()
+
     def disconnect(self, close_code):
         try:
             chat = Chat.objects.get(id=self.chat_id)
             chat.delete()
+            o = Online.objects.get(pk=1)
+            o.online = o.online - 1
+            o.save()
+
         except Chat.DoesNotExist:
-            pass
+            o = Online.objects.get(pk=1)
+            o.online = o.online - 1
+            o.save()
 
         self.chat_message(content={'command': 'disconnect_message'})
 

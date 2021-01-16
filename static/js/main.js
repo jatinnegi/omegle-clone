@@ -17,7 +17,7 @@ function connect() {
       "No stranger online. Try again later.";
     socketRef.close();
     quitBtn.innerHTML = "New <span style='font-size:10px'>ESC</span>";
-  }, 5000);
+  }, 15000);
 
   // socket functions
   socketRef.onopen = () => {
@@ -156,7 +156,6 @@ function connect() {
     if (quitBtnCounter === 1 && isConnected) {
       quitBtn.innerHTML = "Sure? <span style='font-size:10px'>ESC</span>";
     } else if (quitBtnCounter === 2 && isConnected) {
-      if (!isConnected) return;
       socketRef.send(
         JSON.stringify({
           command: "disconnect_message",
@@ -164,7 +163,16 @@ function connect() {
         })
       );
     } else {
-      window.location.reload();
+      if (quitBtnCounter === 1 && socketRef.readyState === 1) {
+        quitBtn.innerHTML = "Sure? <span style='font-size:10px'>ESC</span>";
+      } else if (quitBtnCounter === 2 && socketRef.readyState === 1) {
+        socketRef.send(
+          JSON.stringify({
+            command: "disconnect_message",
+            username,
+          })
+        );
+      } else window.location.reload();
     }
   });
 

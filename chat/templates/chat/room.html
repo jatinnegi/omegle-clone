@@ -12,6 +12,7 @@
         <button class="btn btn-primary ml-1" id="send-button" disabled>Send</button>
     </div>
 </div>
+{{ people_online|json_script:'people_online' }}
 <script src="{% static 'js/uuid.js' %}"></script>
-<script src="{% static 'js/index.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
 {% endblock content %}

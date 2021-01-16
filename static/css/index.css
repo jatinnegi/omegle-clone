@@ -9,7 +9,11 @@ body {
 }
 
 #landing {
-  padding: 20px 0;
+  padding: 20px 10px;
+}
+
+#landing * {
+  margin: 15px 0;
 }
 
 #chat-log {
@@ -17,7 +21,7 @@ body {
   border-radius: 5px;
   padding: 5px 15px;
   margin: 20px 0;
-  height: 530px;
+  height: 480px;
   overflow-y: scroll;
 }
 
@@ -50,4 +54,8 @@ body {
 #typing-message {
   font-weight: bold;
   color: #717171;
+}
+
+.navbar {
+  box-shadow: 0 3px 10px #888;
 }

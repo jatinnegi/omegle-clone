@@ -1,8 +1,13 @@
 from django.shortcuts import render, redirect
+from chat.models import Online
 
 
 def index(request):
-    context = {}
+    o = Online.objects.get(pk=1)
+
+    context = {
+        'people_online': o.online
+    }
 
     if request.method == 'POST':
         return redirect('chat:room')
@@ -11,6 +16,9 @@ def index(request):
 
 
 def room(request):
-    context = {}
+    o = Online.objects.get(pk=1)
+    context = {
+        'people_online': o.online
+    }
 
     return render(request, 'chat/room.html', context)
